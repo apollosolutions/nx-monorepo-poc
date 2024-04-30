@@ -1,0 +1,9 @@
+{
+  "name": "react-monorepo-apollo-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/react-monorepo-apollo-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["react-monorepo-apollo"],
+  "// targets": "to see all targets run: nx show project react-monorepo-apollo-e2e --web",
+  "targets": {}
+}

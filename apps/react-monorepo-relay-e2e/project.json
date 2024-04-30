@@ -1,0 +1,9 @@
+{
+  "name": "react-monorepo-relay-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/react-monorepo-relay-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["react-monorepo-relay"],
+  "// targets": "to see all targets run: nx show project react-monorepo-relay-e2e --web",
+  "targets": {}
+}
