@@ -38,8 +38,8 @@ export default function Reviews() {
     <>
       {reviews.map((review: Review) => (
         <div key={review.id}>
-          <h3>{review.rating}</h3>
-          <p>{review.comment}</p>
+          <strong>Rating: {review.rating}</strong>
+          <p>Comment: {review.comment}</p>
         </div>
       ))}
     </>

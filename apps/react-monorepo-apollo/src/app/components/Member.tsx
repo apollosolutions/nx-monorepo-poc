@@ -38,10 +38,10 @@ export default function Member() {
   return (
     <>
       <div key={member.memberId}>
-        <h3>{member.dateOfBirth}</h3>
-        <p>
-          {member.firstName} {member.lastName}
-        </p>
+        <strong>
+          Full name:{member.firstName} {member.lastName}
+        </strong>
+        <p>Date of Birth: {member.dateOfBirth}</p>
       </div>
     </>
   );

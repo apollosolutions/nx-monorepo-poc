@@ -6,11 +6,14 @@ import Reviews from './components/Reviews';
 
 export default function Index() {
   return (
-    <div>
-      <h1>Apollo Client POC</h1>
+    <>
+      <h1 className="one">Apollo Client POC</h1>
+      <h3>Member Information</h3>
       <Member />
+      <h3>Locations</h3>
       <Locations />
+      <h3>Reviews</h3>
       <Reviews />
-    </div>
+    </>
   );
 }

@@ -44,19 +44,29 @@ export default function Locations() {
 
   return (
     <>
-      {locations.map((location: Location) => (
-        <div key={location.id}>
-          <h3>{location.name}</h3>
-          <p>{location.description}</p>
-          <Image
-            src={location.photo}
-            alt={location.description}
-            width={100}
-            height={100}
-          />
-        </div>
-      ))}
-      <p>Deferred id: {data.reallySlowOperation?.id}</p>
+      <p>
+        Deferred id:{' '}
+        {data.reallySlowOperation?.id ? (
+          data.reallySlowOperation?.id
+        ) : (
+          <div>Loading deferred value...</div>
+        )}
+      </p>
+
+      <div className="locations-wrapper">
+        {locations.map((location: Location) => (
+          <div key={location.id}>
+            <h3>{location.name}</h3>
+            <p>{location.description}</p>
+            <Image
+              src={location.photo}
+              alt={location.description}
+              width={100}
+              height={100}
+            />
+          </div>
+        ))}
+      </div>
     </>
   );
 }
