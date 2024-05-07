@@ -1,7 +1,17 @@
-import Member from './components/Member';
-import styles from './page.module.css';
+'use client';
 
-export default function Index() {
+import styles from './page.module.css';
+import { graphql } from 'react-relay';
+
+graphql`
+  query MemberQuery {
+    member {
+      firstName
+    }
+  }
+`;
+
+export default function Member() {
   /*
    * Replace the elements below with your own.
    *
@@ -9,7 +19,7 @@ export default function Index() {
    */
   return (
     <div>
-      <Member />
+      <p>Hi mom</p>
     </div>
   );
 }
