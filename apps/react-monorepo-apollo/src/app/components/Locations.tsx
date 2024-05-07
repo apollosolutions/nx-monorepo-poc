@@ -1,5 +1,3 @@
-'use client';
-
 import { gql, useQuery } from '@apollo/client';
 import styles from './page.module.css';
 import Image from 'next/image';
