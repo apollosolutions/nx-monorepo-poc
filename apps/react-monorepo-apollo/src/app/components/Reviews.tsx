@@ -1,5 +1,4 @@
 import { gql, useQuery } from '@apollo/client';
-import Image from 'next/image';
 
 interface Review {
   id: string;

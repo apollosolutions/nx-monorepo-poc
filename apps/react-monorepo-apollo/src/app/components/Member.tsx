@@ -1,5 +1,3 @@
-'use client';
-
 import { gql, useQuery } from '@apollo/client';
 
 interface Member {
