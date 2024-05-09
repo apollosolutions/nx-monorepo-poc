@@ -2,9 +2,7 @@
   "name": "@react-monorepo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
-    "relay": "rover graph fetch flyby-dan-test@develop > ./apps/react-monorepo-relay/src/app/schema/schema.graphql && relay-compiler"
-  },
+  "scripts": {},
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.10.1",
@@ -12,7 +10,6 @@
     "next": "^14.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-relay": "^16.2.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -31,12 +28,10 @@
     "@types/node": "18.16.9",
     "@types/react": "18.2.33",
     "@types/react-dom": "18.2.14",
-    "@types/react-relay": "^16.0.6",
     "@typescript-eslint/eslint-plugin": "^7.3.0",
     "@typescript-eslint/parser": "^7.3.0",
     "babel-jest": "^29.4.1",
     "babel-plugin-macros": "^3.1.0",
-    "babel-plugin-relay": "^16.2.0",
     "cypress": "^13.6.6",
     "eslint": "~8.57.0",
     "eslint-config-next": "14.0.4",
@@ -50,7 +45,6 @@
     "jest-environment-jsdom": "^29.4.1",
     "nx": "18.3.4",
     "prettier": "^2.6.2",
-    "relay-compiler": "^16.2.0",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
     "typescript": "~5.4.2"
