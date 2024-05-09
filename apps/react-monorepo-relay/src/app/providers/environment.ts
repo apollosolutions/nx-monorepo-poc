@@ -1,27 +1,53 @@
 import {
-  Store,
-  RecordSource,
   Environment,
   Network,
-  Observable,
+  RecordSource,
+  Store,
+  FetchFunction,
 } from 'relay-runtime';
-import type { FetchFunction, IEnvironment } from 'relay-runtime';
 
-const fetchFn: FetchFunction = (params, variables) => {
-  const response = fetch('http://localhost:4001', {
+const HTTP_ENDPOINT = 'http://localhost:4001';
+
+const fetchFn: FetchFunction = async (request, variables) => {
+  const resp = await fetch(HTTP_ENDPOINT, {
     method: 'POST',
-    headers: [['Content-Type', 'application/json']],
+    headers: {
+      Accept:
+        'application/graphql-response+json; charset=utf-8, application/json; charset=utf-8',
+      'Content-Type': 'application/json',
+      // <-- Additional headers like 'Authorization' would go here
+    },
     body: JSON.stringify({
-      query: params.text,
+      query: request.text, // <-- The GraphQL document composed by Relay
       variables,
     }),
   });
 
-  return Observable.from(response.then((data) => data.json()));
+  return await resp.json();
 };
 
-export function createEnvironment(): IEnvironment {
-  const network = Network.create(fetchFn);
-  const store = new Store(new RecordSource());
-  return new Environment({ store, network });
+function createRelayEnvironment() {
+  return new Environment({
+    network: Network.create(fetchFn),
+    store: new Store(new RecordSource()),
+  });
+}
+
+let relayEnvironment: Environment | undefined;
+
+export function initRelayEnvironment() {
+  const environment = relayEnvironment ?? createRelayEnvironment();
+
+  // For SSG and SSR always create a new Relay environment.
+  if (typeof window === 'undefined') {
+    return environment;
+  }
+
+  // Create the Relay environment once in the client
+  // and then reuse it.
+  if (!relayEnvironment) {
+    relayEnvironment = environment;
+  }
+
+  return relayEnvironment;
 }

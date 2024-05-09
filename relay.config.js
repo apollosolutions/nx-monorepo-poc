@@ -11,4 +11,6 @@ module.exports = {
     '**/__generated__/**',
     '**/__.next__/**',
   ],
+  artifactDirectory:
+    './apps/react-monorepo-relay/src/app/components/__generated__',
 };

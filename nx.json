@@ -19,6 +19,13 @@
   },
   "plugins": [
     {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve"
+      }
+    },
+    {
       "plugin": "@nx/next/plugin",
       "options": {
         "startTargetName": "start",

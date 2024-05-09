@@ -5,5 +5,12 @@
   "projectType": "application",
   "tags": [],
   "// targets": "to see all targets run: nx show project react-monorepo-relay --web",
-  "targets": {}
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "options": {
+        "webpackConfig": "apps/react-monorepo-relay/webpack.config.js"
+      }
+    }
+  }
 }

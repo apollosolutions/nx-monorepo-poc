@@ -1,9 +1,9 @@
 'use client';
 
 import styles from './page.module.css';
-import { graphql } from 'react-relay';
+import graphql from 'babel-plugin-relay/macro';
 
-graphql`
+const TestMe = graphql`
   query MemberQuery {
     member {
       firstName
