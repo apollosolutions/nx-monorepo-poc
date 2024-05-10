@@ -1,7 +1,5 @@
-'use client';
-
 import './global.css';
-import { Providers } from './providers';
+import { ApolloWrapper } from './ApolloWrapper';
 
 // TODO: Find a way to add back in the metadata!! I removed it to ensure that we can have
 // React context available for the Providers as adding 'use client' has no effect if this isn't
@@ -15,7 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <ApolloWrapper>{children}</ApolloWrapper>
       </body>
     </html>
   );

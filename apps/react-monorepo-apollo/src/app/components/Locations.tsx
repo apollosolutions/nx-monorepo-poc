@@ -43,11 +43,9 @@ export default function Locations() {
     <>
       <p>
         Deferred id:{' '}
-        {data.reallySlowOperation?.id ? (
-          data.reallySlowOperation?.id
-        ) : (
-          <div>Loading deferred value...</div>
-        )}
+        {data.reallySlowOperation?.id
+          ? data.reallySlowOperation?.id
+          : 'Loading deferred value...'}
       </p>
 
       <div className="locations-wrapper">

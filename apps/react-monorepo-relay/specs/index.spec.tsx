@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Page from '../src/app/page';
+import Page from '../../react-monorepo-apollo/src/app/page';
 
 describe('Page', () => {
   it('should render successfully', () => {
