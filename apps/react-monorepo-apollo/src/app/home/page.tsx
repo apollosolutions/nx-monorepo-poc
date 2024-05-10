@@ -1,10 +1,9 @@
-'use client';
-
+import { useMemo, useState } from 'react';
 import Locations from '../components/Locations';
 import Member from '../components/Member';
 import Reviews from '../components/Reviews';
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <h1 className="one">Apollo Client POC</h1>

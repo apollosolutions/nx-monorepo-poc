@@ -1,35 +1,23 @@
 import { gql, useQuery } from '@apollo/client';
+import { getClient } from './../ApolloClient';
+
+import { GetReviewsDocument } from './documents/documents.generated';
 
 interface Review {
+  __typename: string;
   id: string;
   rating: string;
   comment: string;
 }
 
-// This is specifically using the repos defined in the voyage 1 course: https://www.apollographql.com/tutorials/voyage-part1
-const GET_REVIEWS = gql`
-  query GetReviews {
-    latestReviews {
-      id
-      rating
-      comment
-    }
-  }
-`;
+export default async function Reviews() {
+  const data = await getClient()
+    .query({ query: GetReviewsDocument })
+    .catch((error) => {
+      console.log(JSON.stringify(error));
+    });
 
-export default function Reviews() {
-  const { data, loading, error } = useQuery(GET_REVIEWS);
-
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
-
-  if (error) {
-    console.error(error);
-    return null;
-  }
-
-  const reviews = data.latestReviews;
+  const reviews = data.data.latestReviews;
 
   return (
     <>
