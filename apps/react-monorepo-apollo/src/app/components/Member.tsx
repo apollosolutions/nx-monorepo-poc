@@ -1,4 +1,3 @@
-import { gql, useQuery } from '@apollo/client';
 import { getClient } from './../ApolloClient';
 import { GetMemberDocument } from './documents/documents.generated';
 
@@ -11,8 +10,6 @@ interface Member {
 }
 
 export default async function Member() {
-  // const { data, loading, error } = useQuery(GET_MEMBER);
-
   const data = await getClient()
     .query({ query: GetMemberDocument })
     .catch((error) => {

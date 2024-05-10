@@ -1,4 +1,3 @@
-import { gql, useQuery } from '@apollo/client';
 import { getClient } from './../ApolloClient';
 import { GetLocationsDocument } from './documents/documents.generated';
 import Image from 'next/image';
@@ -10,8 +9,6 @@ interface Location {
   description: string;
   photo: string;
 }
-
-export const dynamic = 'force-dynamic';
 
 export default async function Locations() {
   let locations: [Location];
@@ -34,11 +31,6 @@ export default async function Locations() {
           : 'Loading'}
       </h3>
       {locations.map((location) => {
-        {
-          {
-            console.log(data.data.reallySlowOperation);
-          }
-        }
         return (
           <div key={location.id}>
             <h3>{location.name}</h3>

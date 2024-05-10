@@ -1,4 +1,3 @@
-import { useMemo, useState } from 'react';
 import Locations from '../components/Locations';
 import Member from '../components/Member';
 import Reviews from '../components/Reviews';

@@ -1,4 +1,3 @@
-import { gql, useQuery } from '@apollo/client';
 import { getClient } from './../ApolloClient';
 
 import { GetReviewsDocument } from './documents/documents.generated';
