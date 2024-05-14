@@ -1,4 +1,5 @@
 import './global.css';
+import { ApolloWrapper } from './ApolloWrapper';
 
 export const metadata = {
   title: 'Welcome to react-monorepo-apollo-cc',
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ApolloWrapper>{children}</ApolloWrapper>
+      </body>
     </html>
   );
 }

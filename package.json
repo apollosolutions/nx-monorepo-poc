@@ -4,8 +4,9 @@
   "license": "MIT",
   "scripts": {
     "relay": "rover graph fetch flyby-dan-test@develop > ./apps/react-monorepo-relay/src/app/schema/schema.graphql && relay-compiler",
-    "postinstall": "yarn codegen",
-    "codegen": "graphql-codegen --config ./apps/react-monorepo-apollo/codegen.ts"
+    "codegen": "yarn codegen-apollo && yarn codegen-apollo-cc",
+    "codegen-apollo": "graphql-codegen --config ./apps/react-monorepo-apollo/codegen.ts",
+    "codegen-apollo-cc": "graphql-codegen --config ./apps/react-monorepo-apollo-cc/codegen.ts"
   },
   "private": true,
   "dependencies": {

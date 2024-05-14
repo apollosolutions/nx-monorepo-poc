@@ -12,6 +12,18 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  images: {
+    remotePatterns: [
+      // This is specifically using the repos defined in the voyage 1 course: https://www.apollographql.com/tutorials/voyage-part1
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname:
+          '/apollographql/image/upload/v*/odyssey/federation-course1/FlyBy%20illustrations/**',
+      },
+    ],
+  },
 };
 
 const plugins = [
