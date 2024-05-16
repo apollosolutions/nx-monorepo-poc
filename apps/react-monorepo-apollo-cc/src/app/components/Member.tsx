@@ -1,15 +1,6 @@
 'use client';
-import { Suspense } from 'react';
-import {
-  useReadQuery,
-  useBackgroundQuery,
-} from '@apollo/experimental-nextjs-app-support/ssr';
-import { QueryReference } from '@apollo/client/react';
-
-import {
-  GetMemberDocument,
-  GetMemberQuery,
-} from './documents/documents.generated';
+import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
+import { GetMemberDocument } from './documents/documents.generated';
 
 interface Member {
   __typename: string;
@@ -19,18 +10,8 @@ interface Member {
   dateOfBirth: string;
 }
 
-export default function MemberWrapper() {
-  const [queryRef] = useBackgroundQuery(GetMemberDocument);
-
-  return (
-    <Suspense fallback={<>Loading...</>}>
-      <Member queryRef={queryRef} />
-    </Suspense>
-  );
-}
-
-function Member({ queryRef }: { queryRef: QueryReference<GetMemberQuery> }) {
-  const { data } = useReadQuery(queryRef);
+export default function Member() {
+  const { data } = useSuspenseQuery(GetMemberDocument);
 
   console.log('WOW!', JSON.stringify(data));
 

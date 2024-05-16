@@ -1,15 +1,6 @@
 'use client';
-import { Suspense } from 'react';
-import {
-  useReadQuery,
-  useBackgroundQuery,
-} from '@apollo/experimental-nextjs-app-support/ssr';
-import { QueryReference } from '@apollo/client/react';
-
-import {
-  GetReviewsDocument,
-  GetReviewsQuery,
-} from './documents/documents.generated';
+import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
+import { GetReviewsDocument } from './documents/documents.generated';
 
 interface Review {
   __typename: string;
@@ -18,18 +9,8 @@ interface Review {
   comment: string;
 }
 
-export default function ReviewsWrapper() {
-  const [queryRef] = useBackgroundQuery(GetReviewsDocument);
-
-  return (
-    <Suspense fallback={<>Loading...</>}>
-      <Reviews queryRef={queryRef} />
-    </Suspense>
-  );
-}
-
-function Reviews({ queryRef }: { queryRef: QueryReference<GetReviewsQuery> }) {
-  const { data } = useReadQuery(queryRef);
+export default function Reviews() {
+  const { data } = useSuspenseQuery(GetReviewsDocument);
 
   const reviews = data.latestReviews;
 

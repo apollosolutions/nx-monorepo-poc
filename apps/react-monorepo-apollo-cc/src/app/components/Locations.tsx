@@ -1,14 +1,6 @@
 'use client';
-import { Suspense } from 'react';
-import {
-  useReadQuery,
-  useBackgroundQuery,
-} from '@apollo/experimental-nextjs-app-support/ssr';
-import { QueryReference } from '@apollo/client/react';
-import {
-  GetLocationsDocument,
-  GetLocationsQuery,
-} from './documents/documents.generated';
+import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
+import { GetLocationsDocument } from './documents/documents.generated';
 import Image from 'next/image';
 
 interface Location {
@@ -19,24 +11,10 @@ interface Location {
   photo: string;
 }
 
-export default function LocationsWrapper() {
-  const [queryRef] = useBackgroundQuery(GetLocationsDocument);
-
-  return (
-    <Suspense fallback={<>Loading...</>}>
-      <Locations queryRef={queryRef} />
-    </Suspense>
-  );
-}
-
-function Locations({
-  queryRef,
-}: {
-  queryRef: QueryReference<GetLocationsQuery>;
-}) {
+export default function Locations() {
   let locations: [Location];
 
-  const { data } = useReadQuery(queryRef);
+  const { data } = useSuspenseQuery(GetLocationsDocument, {});
 
   locations = data.locations;
 
