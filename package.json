@@ -12,6 +12,7 @@
   "dependencies": {
     "@apollo/client": "^3.10.3",
     "@apollo/experimental-nextjs-app-support": "^0.10.1",
+    "@apollo/persisted-query-lists": "^1.0.0",
     "@nx/webpack": "^19.0.2",
     "graphql": "^16.8.1",
     "next": "^14.2.3",
@@ -22,8 +23,9 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@apollo/generate-persisted-query-manifest": "^1.2.1",
     "@graphql-codegen/cli": "^5.0.2",
-    "@graphql-codegen/client-preset": "^4.2.5",
+    "@graphql-codegen/client-preset": "^4.2.6",
     "@graphql-codegen/near-operation-file-preset": "^3.0.0",
     "@graphql-codegen/typed-document-node": "^5.0.6",
     "@graphql-codegen/typescript": "^4.0.6",

@@ -1,0 +1,13 @@
+query GetLocations {
+  locations {
+    id
+    description
+    name
+    photo
+  }
+  ... @defer {
+    reallySlowOperation {
+      id
+    }
+  }
+}

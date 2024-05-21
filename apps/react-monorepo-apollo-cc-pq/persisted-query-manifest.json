@@ -1,0 +1,36 @@
+{
+  "format": "apollo-persisted-query-manifest",
+  "version": 1,
+  "operations": [
+    {
+      "id": "be3205aef76870340d1e08b5be3159f444ed00889b1825431fcdf63d575ae1e2",
+      "name": "GetLocations",
+      "type": "query",
+      "body": "query GetLocations {\n  locations {\n    description\n    id\n    name\n    photo\n    __typename\n  }\n  ... @defer {\n    reallySlowOperation {\n      id\n      __typename\n    }\n    __typename\n  }\n}"
+    },
+    {
+      "id": "fa81f48abc9da4ca3bf22430879f9297b8c2bc2901586ad054bf93bdd631eb44",
+      "name": "GetLocationsTest",
+      "type": "query",
+      "body": "query GetLocationsTest {\n  locations {\n    id\n    __typename\n  }\n}"
+    },
+    {
+      "id": "a0ec9d59c559d2b57602c564809e5617a9ce1b374092acd47f52a6390d6af37d",
+      "name": "GetMember",
+      "type": "query",
+      "body": "query GetMember {\n  member {\n    dateOfBirth\n    firstName\n    lastName\n    memberId\n    __typename\n  }\n}"
+    },
+    {
+      "id": "c04ed8f0316027c8a01248b0f3723cd670513e267efa78a343970af4f2c651b9",
+      "name": "GetRating",
+      "type": "query",
+      "body": "query GetRating {\n  latestReviews {\n    rating\n    __typename\n  }\n}"
+    },
+    {
+      "id": "b246d81efc16703b0db1c4019d3e8d83b1dc29737ef977f2a115b2778fc94869",
+      "name": "GetReviews",
+      "type": "query",
+      "body": "query GetReviews {\n  latestReviews {\n    comment\n    id\n    rating\n    __typename\n  }\n}"
+    }
+  ]
+}

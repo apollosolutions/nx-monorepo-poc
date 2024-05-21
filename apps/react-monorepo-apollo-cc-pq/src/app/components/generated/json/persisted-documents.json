@@ -1,0 +1,7 @@
+{
+  "d17ebb8cdbe7182759116f25415b01c9b50b270a": "query GetLocations { locations { description id name photo } ... @defer { reallySlowOperation { id } } }",
+  "b3dc32d3b1950b76d05cd29211d920a0c98037d7": "query GetLocationsTest { locations { id } }",
+  "c0e83748e308bca8913d99ed997967bc4319bc5c": "query GetMember { member { dateOfBirth firstName lastName memberId } }",
+  "fb3c6a01508683aaa6ec7c213f8e47f2998ee8c4": "query GetReviews { latestReviews { comment id rating } }",
+  "e9c1f59a308a7bc52f032b66221540d4151f1e99": "query GetRating { latestReviews { rating } }"
+}

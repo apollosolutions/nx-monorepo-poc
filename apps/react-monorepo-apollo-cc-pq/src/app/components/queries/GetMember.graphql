@@ -1,0 +1,8 @@
+query GetMember {
+  member {
+    dateOfBirth
+    firstName
+    lastName
+    memberId
+  }
+}
